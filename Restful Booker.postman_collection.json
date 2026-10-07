@@ -1,0 +1,2134 @@
+{
+	"info": {
+		"_postman_id": "862c17c9-6040-42ef-802c-b6c88fc76eaf",
+		"name": "Restful Booker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41552567"
+	},
+	"item": [
+		{
+			"name": "Login Functionality  (Authentication)",
+			"item": [
+				{
+					"name": "valid scenario",
+					"item": [
+						{
+							"name": "Valid username and password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"password123\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check if Token Format is Valid",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token=c89eda9e75446e3",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"token\": \"38a66007e6b0e34\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "invalid scenario",
+					"item": [
+						{
+							"name": "Invalid username and password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"ali\",\r\n  \"password\": \"passwor\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "valid username and invalid password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"ali\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "empty username and password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \" \",\r\n  \"password\": \" \"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "empty username and valid password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \" \",\r\n  \"password\": \"password123\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "valid username and empty password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \" \"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Missing username and password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Missing username",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \r\n  \"password\": \"password123\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Missing password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"admin\"\r\n \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Extra invalid field",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"password123\",\r\n  \"name\"       : \"ali essam\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Use Get instead of POST",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify EndPont in URL",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"password123\",\r\n  \"name\"     : \"ali essam\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify The Headers",
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"admin\",\r\n  \"password\": \"password123\",\r\n   \"name\"       : \"ali essam\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/auth",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"auth"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Create new Booking",
+			"item": [
+				{
+					"name": "Valid Booking Creation",
+					"item": [
+						{
+							"name": "Create a valid reservation by entering all fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a valid reservation by \nentering all values ​​except additionalneeds.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Verify Missing Mandatory Fields",
+					"item": [
+						{
+							"name": "Test by leaving the FirstName field Missing \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Lastname field Missing \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Totalpricefield Missing \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Bookingdates field Missing \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Checkout field Missing \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\"\r\n\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Checkin field Missing \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Depositpaid field Missing \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\"  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Verify Empty Values Fields",
+					"item": [
+						{
+							"name": "Test by leaving the FirstName field Empty \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"\",\r\n  \"lastname\" : \"\",\r\n  \"totalprice\" : \"\",\r\n  \"depositpaid\" : \"\",\r\n  \"additionalneeds\" : \"\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"\",\r\n    \"checkout\" : \"\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Lastname field Empty \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by submitting the form with empty values for all fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Totalprice field Empty \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : \"\",\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Depositpaid field Empty \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : \"\",\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Bookingdates field Empty \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : \"\"\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Checkin field Empty \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Checkout field Empty \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Verify for Write Word \"Null\" in field",
+					"item": [
+						{
+							"name": "Test by Write Word \"Null\" the FirstName field \nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Null\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by Write Word \"Null\" the Lastname field\nand submitting the form",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Null\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Verify Invalid Data Format ",
+					"item": [
+						{
+							"name": "Verify the entry of special characters in Firstname fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"!@#al\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of Numbers in Firstname fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"12ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of special characters in Lastname fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"!@#Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of Numbers in Lastname fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"12Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of special characters in Totalprice fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : \"@#2000\",\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of Letters in Totalprice fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : \"ak2000\",\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of Space in Totalprice fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : \"20  00\",\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Invalid Data Format Depositpaid fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : \"ahm\",\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of special characters in Bookingdates fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"@#2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of Letters in Bookingdates fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2hh025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Invalid Data Format Bookingdates fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"aaf\",\r\n    \"checkout\" : \"1223\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify in checking greater than checkout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2014-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of special characters in Additionalneeds fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"!@#$Breakfast\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of Numbers in Additionalneeds fields.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"firstname\" : \"Ali\",\r\n  \"lastname\" : \"Essam\",\r\n  \"totalprice\" : 2000,\r\n  \"depositpaid\" : true,\r\n  \"additionalneeds\" : \"123\",\r\n  \"bookingdates\" : {\r\n    \"checkin\" : \"2025-02-23\",\r\n    \"checkout\" : \"2025-10-23\"\r\n  }\r\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Update Booking (partial)",
+			"item": [
+				{
+					"name": "Valid Booking Creation",
+					"item": [
+						{
+							"name": "Create a valid reservation by entering all fields.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstname\" : \"Ahmed\",\n\"lastname\" : \"Essam\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create a valid reservation by \nentering all values ​​except additionalneeds.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Verify Missing Mandatory Fields",
+					"item": [
+						{
+							"name": "Test by submitting the form with missing values for all fields.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the FirstName field Missing \nand submitting the form",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\n\"lastname\" : \"Essam\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Lastname field Missing \nand submitting the form",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstname\" : \"Ahmed\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Verify Empty Values Fields",
+					"item": [
+						{
+							"name": "Test by submitting the form with empty values for all fields.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstname\" : \"\",\n\"lastname\" : \"\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the FirstName field Empty \nand submitting the form",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstname\" : \"\",\n\"lastname\" : \"Essam\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by leaving the Lastname field Empty \nand submitting the form",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstname\" : \"Ahmed\",\n\"lastname\" : \"\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "\nVerify for Write Word \"Null\" in field\n",
+					"item": [
+						{
+							"name": "Test by Write Word \"Null\" the FirstName field \nand submitting the form",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstname\" : \"Null\",\n\"lastname\" : \"Essam\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Test by Write Word \"Null\" the Lastname field\nand submitting the form",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstname\" : \"Ahmed\",\n\"lastname\" : \"Null\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Verify Invalid Data Format",
+					"item": [
+						{
+							"name": "Verify the entry of special characters in Firstname fields.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstname\" : \"@#$Ahmed\",\n\"lastname\" : \"Essam\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of Numbers in Firstname fields.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstname\" : \"123Ahmed\",\n\"lastname\" : \"Essam\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of special characters in Lastname fields.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstname\" : \"Ahmed\",\n\"lastname\" : \"!#Essam\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify the entry of Numbers in Lastname fields.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"firstname\" : \"Ahmed\",\n\"lastname\" : \"12Essam\"\n}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Get Booking by ID",
+			"item": [
+				{
+					"name": "valid scenario",
+					"item": [
+						{
+							"name": "Ensure that the data is sent correctly",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "invalid scenario",
+					"item": [
+						{
+							"name": "Verify the validity of the ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify EndPont in URL",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Use Get instead of POST",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Delete Booking",
+			"item": [
+				{
+					"name": "valid scenario",
+					"item": [
+						{
+							"name": "Ensure that the data is sent correctly",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "invalid scenario",
+					"item": [
+						{
+							"name": "Verify the validity of the ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify EndPont in URL",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify Use Get instead of POST",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Verify The Headers",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{}"
+								},
+								"url": {
+									"raw": "https://restful-booker.herokuapp.com/booking{bookingid}",
+									"protocol": "https",
+									"host": [
+										"restful-booker",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"booking{bookingid}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
